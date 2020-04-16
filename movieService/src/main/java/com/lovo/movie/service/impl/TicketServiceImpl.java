@@ -21,4 +21,16 @@ public class TicketServiceImpl implements ITicketService {
     public void sava(List<TicketEntity> ticketEntityList) {
          ticketDao.saveAll(ticketEntityList);
     }
+
+    @Override
+    public TicketEntity getTicketByIndex(int index) {
+        return ticketDao.getTicketByIndex(index);
+    }
+
+    @Override
+    public void updateTicketNum(int index) {
+     TicketEntity ticketEntity=   ticketDao.getTicketByIndex(index);
+     ticketEntity.setTicketNum(ticketEntity.getTicketNum()-1);
+     ticketDao.save(ticketEntity);
+    }
 }

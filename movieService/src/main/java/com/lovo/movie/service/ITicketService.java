@@ -16,4 +16,17 @@ public interface ITicketService {
      *
      */
     public  void sava(List<TicketEntity> ticketEntityList);
+
+    /**
+     * 根据序号查询出电影票信息
+     * @param index
+     * @return
+     */
+    public TicketEntity getTicketByIndex(int index);
+
+    /**
+     * 根据序号修改
+     * @param index
+     */
+    public  void updateTicketNum(int index);
 }

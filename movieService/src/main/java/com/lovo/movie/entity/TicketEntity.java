@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "sys_ticket")
 public class TicketEntity {
     @Id
-    @Column(name = "user_id",length = 32)
+    @Column(name = "ticket_id",length = 32)
     @GenericGenerator(name = "ticket_uuid",strategy = "uuid")
     @GeneratedValue(generator = "ticket_uuid")
     private String ticketId;
