@@ -19,11 +19,22 @@ public class TicketController {
 
     return ticketService.findAllTicket();
     }
+
+    /**
+     * 根据电影票序号查询出电影票对象
+     * @param index
+     * @return
+     */
     @RequestMapping("ticketByIndex/{index}")
     public TicketEntity ticketByIndex(@PathVariable("index") int index){
        return ticketService.getTicketByIndex(index);
     }
 
+    /**
+     * 电影票减1
+     * @param index
+     * @return
+     */
     @RequestMapping("updateTicketNum/{index}")
     public String  updateTicketNum(@PathVariable("index") int index){
         ticketService.updateTicketNum(index);

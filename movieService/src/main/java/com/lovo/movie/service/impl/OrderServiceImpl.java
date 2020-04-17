@@ -6,7 +6,10 @@ import com.lovo.movie.entity.OrderEntity;
 import com.lovo.movie.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @Service(value = "orderService")
 public class OrderServiceImpl implements IOrderService {
@@ -19,5 +22,16 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public OrderEntity getOrderEntityByOrderNum(String orderNum) {
         return orderDao.getOrderEntityByOrderNum(orderNum);
+    }
+
+    @Override
+    @Transactional
+    public void updateOrderBynum(String orderNum, int tag) {
+        orderDao.updateOrderBynum(orderNum,tag);
+    }
+
+    @Override
+    public List<OrderEntity> findAllOrder() {
+        return (List<OrderEntity>) orderDao.findAll();
     }
 }
